@@ -1,5 +1,29 @@
+# 站点基本信息
 title: xysjb1-create 的技术博客
-description: 记录网络安全学习之路
-theme: minima
+description: 记录网络安全学习之路 · CTF Writeups 与安全笔记
+author:
+  name: xysjb1-create
+  github: xysjb1-create
 baseurl: "/xysjb1"
 url: "https://xysjb1-create.github.io"
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# 顶部导航
+nav:
+  - title: 首页
+    url: /
+  - title: 归档
+    url: /archive/
+  - title: 标签
+    url: /tags/
+  - title: 关于
+    url: /about/
+
+# 社交链接（页脚）
+social:
+  github: https://github.com/xysjb1-create
+  rss: /feed.xml
+
+# 显示设置
+show_excerpts: true
