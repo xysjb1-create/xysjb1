@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}" data-theme="dark">
+  {% include head.html %}
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    {% include header.html %}
+    <main class="site-main container">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <button class="back-to-top" id="back-to-top" aria-label="返回顶部" title="返回顶部">↑</button>
+    <script>
+      window.__SITE__ = {
+        baseurl: {{ site.baseurl | jsonify }},
+        posts: [
+          {% for post in site.posts %}
+          {
+            title: {{ post.title | jsonify }},
+            url: {{ post.url | relative_url | jsonify }},
+            date: {{ post.date | date: "%Y-%m-%d" | jsonify }},
+            tags: {{ post.tags | jsonify }}
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      };
+    </script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>
