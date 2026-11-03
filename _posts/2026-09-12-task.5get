@@ -1,26 +1,9 @@
 ---
 layout: post
-title: "BugkuCTF GET Writeup"
+title: "旧版本文章（已迁移）"
 date: 2026-09-24
-categories: [CTF, Writeup]
-tags: [Bugku, Web, GET传参]
+published: false
 ---
 
-## 题目信息
-
-- **平台**：BugkuCTF
-- **题目**：GET
-- **类型**：Web
-- **分值**：10
-- **描述**：无
-- **目标地址**：`http://160.202.254.160:11209`
-
-## 解题思路
-
-题目直接给出了 PHP 源码：
-
-```php
-$what = $_GET['what'];
-echo $what;
-if ($what == 'flag')
-    echo 'flag{***}';
+> 此文件为旧版本，已停止发布（published: false）。
+> 新版文章见 _posts 目录下的同名新文件。
