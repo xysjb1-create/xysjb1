@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="post-meta-top">
+      <a class="post-category" href="{{ '/archive/' | relative_url }}">{% if page.categories %}{{ page.categories | join: ' / ' }}{% else %}随笔{% endif %}</a>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      <span class="reading-time" id="reading-time"></span>
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+    {% if page.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+      <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="post-layout">
+    <div class="post-content markdown-body" id="post-content">
+      {{ content }}
+    </div>
+    <aside class="toc" id="toc" aria-label="文章目录">
+      <div class="toc-title">目录</div>
+      <nav id="toc-nav"></nav>
+    </aside>
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-share">
+      <span>如果这篇文章对你有帮助，欢迎收藏或分享。</span>
+    </div>
+    <nav class="post-pagination">
+      {% if page.previous %}
+      <a class="page-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="pagination-label">← 上一篇</span>
+        <span class="pagination-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a class="page-next" href="{{ page.next.url | relative_url }}">
+        <span class="pagination-label">下一篇 →</span>
+        <span class="pagination-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </nav>
+  </footer>
+</article>
+<script>
+  window.__POST_TITLE__ = {{ page.title | jsonify }};
+</script>
