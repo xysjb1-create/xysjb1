@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark">~/</span>
+      <span class="brand-text">{{ site.title }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="主导航">
+      {% for item in site.nav %}
+      {% assign item_url = item.url | relative_url %}
+      {% assign current = page.url %}
+      <a class="nav-link {% if current == item_url or current == item.url %}active{% endif %}"
+         href="{{ item_url }}">{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="search-btn" aria-label="搜索文章" title="搜索文章（/）">⌕</button>
+      <button class="icon-btn" id="theme-toggle" aria-label="切换主题" title="切换明暗主题">◐</button>
+    </div>
+  </div>
+</header>
+
+<div class="search-modal" id="search-modal" aria-hidden="true">
+  <div class="search-panel">
+    <input type="search" id="search-input" placeholder="输入关键词搜索文章标题 / 标签…" autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+    <div class="search-hint">Esc 关闭 · 回车打开第一条</div>
+  </div>
+</div>
